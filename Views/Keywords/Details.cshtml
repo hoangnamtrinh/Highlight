@@ -1,0 +1,69 @@
+@model Highlight.Models.Keyword
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Keyword</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Highlight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Highlight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Preference)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Preference)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                @* <tr>
+                    <th>Tag</th>
+                </tr> *@
+                @foreach (var item in Model.Tags)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Body)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a> |
+    <a asp-controller="Tags" asp-action="Create">Add tags</a>
+     @* <a asp-controller="Tags" asp-action="Create" asp-route-id="@Model?.Id">Add tags</a> *@
+</div>
